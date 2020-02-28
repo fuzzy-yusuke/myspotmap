@@ -1,16 +1,9 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/myspots','PlaceController@index')->name('place.list');
+//一覧ページのルーティングを定義
+//ドメインの最後が「myspots」の時、PlaceControllerを呼び出す
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/myspots');
 });
