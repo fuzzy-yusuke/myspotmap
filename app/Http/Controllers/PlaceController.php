@@ -14,7 +14,10 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        //
+        //一覧を呼び出す為のメソッド
+            $places=Place::all();
+            return view('index',['places' => $places]);
+            //DBにある全てのデータを呼び出す
     }
 
     /**
