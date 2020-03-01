@@ -1,20 +1,22 @@
-<!DOCTYPE html>
+@extends('layout')
 
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title>MySpotMap</title>
-        <style>body {padding: 10px;}</style>
-    </head>
-    <body>
+    @section('content') <!--layout.blade.phpで設定した共通テンプレートを呼び出す-->
         <h1>登録スポット一覧</h1>
 
+        <table class='table table-striped table-hover'>
+            <tr>
+                <th>カテゴリ</th><th>名前</th><th>住所</th>
+            </tr>
         @foreach($places as $place)
-            <p>
-                {{$place->category->name}},
-                {{$place->name}},
-                {{$place->address}}
-            </p>
+            <tr>
+                <td>{{$place->category->name}}</td>
+                <td>
+                    <a href={{ route('place.detail',['id'=>$place->$id]) }}>
+                    {{$place->name}}
+                    </a>
+                </td>
+                <td>{{$place->address}}</td>
+            </tr>
         @endforeach
-    </body>
-</html>
+        </table>
+    @endsection

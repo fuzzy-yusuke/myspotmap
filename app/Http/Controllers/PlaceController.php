@@ -47,9 +47,12 @@ class PlaceController extends Controller
      * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function show(Place $place)
+    public function show($id)
     {
-        //
+        //詳細ページを呼び出すメソッド
+        //idを引数に設定する
+        $place=Place::find($id);
+        return view('show',['place'=>$place]);
     }
 
     /**
