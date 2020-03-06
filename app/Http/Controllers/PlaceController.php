@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Place;
+use App\Category; //Category.phpファイルを使う
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -27,7 +28,11 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        //
+        //新規登録のメソッド
+        $place=new Place;
+        $categories=Category::all()->pluck('name','id');
+        //pluckメソッドで「name」と「id」を指定し、取り出す
+        return view('new',['place'=>$place,'categories'=>$categories]);
     }
 
     /**
@@ -38,7 +43,14 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //登録内容を保存するメソッド
+        $place = new Place;
+        $place->name=request('name');
+        $place->address=request('address');
+        $place->category_id=request('category_id');
+        $place = save();
+        return redirect()->route('place.detail',['id'=>$place->$id]);
+        //登録後、詳細ページへ移動
     }
 
     /**
