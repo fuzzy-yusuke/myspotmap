@@ -11,6 +11,13 @@ Route::post('/myspot','PlaceController@store')->name('place.store');
 //登録内容を保存するルーティング定義
 //引数が「new」にならないように、詳細ページの前に記述
 
+Route::get('/myspot/edit/{id}','PlaceController@edit')->name('place.edit');
+//既存の登録データを編集するルーティング
+//idを引数にし、idと紐づけられたデータを編集出来る
+
+Route::post('/myspot/update/{id}','PlaceController@update')->name('place.update');
+//上記の編集した内容を保存する（更新する）ルーティング
+
 Route::get('/myspot/{id}','PlaceController@show')->name('place.detail');
 //詳細ページへのルーティング
 //idを引数にし、各スポットの詳細ページを呼び出す

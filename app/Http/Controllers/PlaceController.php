@@ -75,7 +75,11 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
-        //
+        //更新ページを呼び出すメソッド
+        $place=Place::find($id);
+        $categories=Category::all()->pluck('name','id');
+        //pluckメソッドで「name」と「id」を指定し、取り出す
+        return view('edit',['place'=>$place,'categories'=>$categories]);
     }
 
     /**
@@ -87,7 +91,14 @@ class PlaceController extends Controller
      */
     public function update(Request $request, Place $place)
     {
-        //
+        //更新画面で編集した内容を保存するメソッド
+        $place=Place::find($id);
+        $place->name=request('name');
+        $place->address=request('address');
+        $place->category_id=request('category_id');
+        $place->save();
+        return redirect()->route('place.detail',['id'=>$place->id]);
+        //保存出来たら、詳細ページに戻る
     }
 
     /**
