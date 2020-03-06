@@ -11,7 +11,7 @@
             <tr>
                 <td>{{$place->category->name}}</td>
                 <td>
-                    <a href={{ route('place.detail',['id'=>$place->$id]) }}>
+                    <a href={{ route(place.detail,[id=>$place->$id]) }}>
                     {{$place->name}}
                     </a>
                 </td>
@@ -19,4 +19,7 @@
             </tr>
         @endforeach
         </table>
+        <div>
+            <a href={{ route(place.new)}} class='btn btn-outline-primary'>新しい場所</a>
+        </div>
     @endsection

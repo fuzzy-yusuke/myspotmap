@@ -43,7 +43,14 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //登録内容を保存するメソッド
+        $place = new Place;
+        $place->name=request('name');
+        $place->address=request('address');
+        $place->category_id=request('category_id');
+        $place = save();
+        return redirect()->route('place.detail',['id'=>$place->$id]);
+        //登録後、詳細ページへ移動
     }
 
     /**
