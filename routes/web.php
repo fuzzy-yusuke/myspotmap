@@ -22,6 +22,10 @@ Route::get('/myspot/{id}','PlaceController@show')->name('place.detail');
 //詳細ページへのルーティング
 //idを引数にし、各スポットの詳細ページを呼び出す
 
+Route::delete('/myspot/{id}','PlaceController@destroy')->name('place.destroy');
+//登録したスポットを削除するルーティング
+//他のルーティングに影響が及ばないよう、一番最後に記述
+
 Route::get('/', function () {
     return redirect('/myspots');
 });

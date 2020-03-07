@@ -109,6 +109,9 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
-        //
+        //登録した内容を削除するメソッド
+        $place=Place::find($id);
+        $place->delete();
+        return redirect('/myspots');
     }
 }
