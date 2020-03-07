@@ -11,5 +11,8 @@
         <div>
             <a href={{ route(place.list) }}>一覧に戻る</a>
             <a href={{ route(place.edit,[id=>$place->id])}}>編集</a>
+            {{ Form::open(['method'=>'delete','route'=>['place.destroy,$place->id']])}}
+                {{ Form::submit('削除')}}
+            {{ Form::close()}}
         </div>
     @endsection
