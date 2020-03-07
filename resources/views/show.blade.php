@@ -8,6 +8,7 @@
             <p>{{$place->category->name}}</p>
             <p>{{$place->address}}</p>
         </div>
+
         <div>
             <a href={{ route(place.list) }}>一覧に戻る</a>
             <a href={{ route(place.edit,[id=>$place->id])}}>編集</a>
