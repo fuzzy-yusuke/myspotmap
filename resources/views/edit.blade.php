@@ -22,6 +22,7 @@
         </div>
         {{ Form::close()}}
         <div>
-            <a href={{ route(place.list) }}>一覧に戻る</a>
+            <!--<a href={{ route(place.list) }}>一覧に戻る</a>-->
+            {{HTML::link 'route(place.list','一覧に戻る')}}
         </div>
     @endsection
