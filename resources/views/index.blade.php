@@ -21,6 +21,6 @@
         </table>
         
         <div>
-            <a href={{ route(place.new) }} class='btn btn-outline-primary'>新しい場所</a>
+            <a href="{{ route('place.new') }}" class='btn btn-outline-primary'>新しい場所</a>
         </div>
     @endsection
