@@ -11,7 +11,7 @@
     <body>
         <!--ナビゲーションバーでオプションを記述-->
         <nav class='navbar navbar-expand-md navbar-dark bg-dark fixed-top'>
-            <a class='navbar-brand' href={{route('place.list')}}>myspotmap</a>
+            <a class='navbar-brand' href="{{route('place.list')}}">myspotmap</a>
         </nav>
         <div class='container'> <!--実際の表示部分をレイアウトに適用させるクラス-->
         @yield('content')

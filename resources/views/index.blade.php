@@ -11,7 +11,7 @@
             <tr>
                 <td>{{$place->category->name}}</td>
                 <td>
-                    <a href={{ route(place.detail,[id=>$place->$id]) }}>
+                    <a href="{{ route('place.detail',['id' => $place -> $id]) }}">
                     {{$place->name}}
                     </a>
                 </td>
