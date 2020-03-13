@@ -63,7 +63,7 @@ class PlaceController extends Controller
     {
         //詳細ページを呼び出すメソッド
         //idを引数に設定する
-        $place=Place::find($id);
+        $place= Place::find($id);
         return view('show',['place'=>$place]);
     }
 
