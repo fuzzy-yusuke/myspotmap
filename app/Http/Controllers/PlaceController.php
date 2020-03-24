@@ -73,7 +73,7 @@ class PlaceController extends Controller
      * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function edit(Place $place)
+    public function edit($id)
     {
         //更新ページを呼び出すメソッド
         $place=Place::find($id);
