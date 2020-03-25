@@ -9,6 +9,11 @@
             <p>{{$place->address}}</p>
         </div>
 
+        <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBJV0HwVNTLUCtGgeFKwxdhiIelTkjnPsM;q={{$place-.adress}}'
+            width='100%'
+            height='320'
+            frameborder='0'>
+        </iframe>
         <div>
             <a href="{{ route('place.list') }}">一覧に戻る</a>
             <a href="{{ route('place.edit',['id' => $place -> id])}}">編集</a>
