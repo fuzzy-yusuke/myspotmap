@@ -15,7 +15,7 @@
         </div>
         <div class='form-group'>
             {{ Form::label('category_id','カテゴリ：' )}}
-            {{ Form::text('category_id',$categories )}}
+            {{ Form::select('category_id',$categories )}}
         </div>
         <div class='form-group'>
             {{ Form::submit('更新する',['class'=>'btn btn-outline-primary'] )}}

@@ -89,7 +89,7 @@ class PlaceController extends Controller
      * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Place $place)
+    public function update(Request $request,$id, Place $place)
     {
         //更新画面で編集した内容を保存するメソッド
         $place=Place::find($id);

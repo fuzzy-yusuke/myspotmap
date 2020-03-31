@@ -9,7 +9,7 @@
             <p>{{$place->address}}</p>
         </div>
 
-        <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyAm6D4vHCLMs5RVXUU10qSNQmMfXVV2DCs&q={{$place->adress}}'
+        <iframe id='map' src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAm6D4vHCLMs5RVXUU10qSNQmMfXVV2DCs&q={{$place->address}}"
             width='100%'
             height='320'
             frameborder='0'>
