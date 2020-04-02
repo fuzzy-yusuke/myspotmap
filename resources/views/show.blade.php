@@ -20,5 +20,5 @@
             {{ Form::open(['method'=>'delete','route'=>['place.destroy',$place->id]])}}
                 {{ Form::submit('削除')}}
             {{ Form::close()}}
-        </div>
+        </div> 
     @endsection
