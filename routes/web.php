@@ -29,3 +29,11 @@ Route::delete('/myspot/{id}','PlaceController@destroy') -> name('place.destroy')
 Route::get('/', function () {
     return redirect('/myspots');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return view('welcome');
+}); //確認用
