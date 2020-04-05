@@ -20,7 +20,10 @@
         @endforeach
         </table>
         
+        @auth
         <div>
             <a href="{{ route('place.new') }}" class='btn btn-outline-primary'>新しい場所</a>
+            <!--ログインしていない時、ここのリンクは表れない-->
         </div>
+        @endauth
     @endsection
