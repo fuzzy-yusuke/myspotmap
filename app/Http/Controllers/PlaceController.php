@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class PlaceController extends Controller
 {
+    public function __construct()
+    {
+        //ログインしていない時、実行しない機能を指定するメソッド
+        $this->middleware('auth')->except(['index','show']);
+        //一覧表示と詳細表示以外の機能を指定
+    }
+    
     /**
      * Display a listing of the resource.
      *
