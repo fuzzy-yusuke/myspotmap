@@ -60,8 +60,7 @@
             </li>
             @endguest
             </ul>
-            </div>
-            </div>
+        </div>
         </nav>
         <div class='container'> <!--実際の表示部分をレイアウトに適用させるクラス-->
         @yield('content')

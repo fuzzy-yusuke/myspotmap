@@ -55,8 +55,8 @@ class PlaceController extends Controller
         $place->name=request('name');
         $place->address=request('address');
         $place->category_id=request('category_id');
-        $place = save();
-        return redirect()->route('place.detail',['id'=>$place->$id]);
+        $place -> save();
+        return redirect()->route('place.detail',['id'=>$place->id]);
         //登録後、詳細ページへ移動
     }
 
@@ -114,7 +114,7 @@ class PlaceController extends Controller
      * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Place $place)
+    public function destroy($id)
     {
         //登録した内容を削除するメソッド
         $place=Place::find($id);
