@@ -11,4 +11,8 @@ class Place extends Model
         //Categoryモデルと関連付けさせる。（Categoryモデルに属させるイメージ）
     } 
         //Placeモデルにリレーションを設定
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

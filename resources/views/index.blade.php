@@ -5,7 +5,7 @@
 
         <table class='table table-striped table-hover'>
             <tr>
-                <th>カテゴリ</th><th>名前</th><th>住所</th>
+                <th>カテゴリ</th><th>名前</th><th>住所</th><th>投稿者</th>
             </tr>
         @foreach($places as $place)
             <tr>
@@ -16,6 +16,7 @@
                     </a>
                 </td>
                 <td>{{$place->address}}</td>
+                <td>{{$place->user->name}}</td>
             </tr>
         @endforeach
         </table>
