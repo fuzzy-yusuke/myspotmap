@@ -52,6 +52,7 @@ class PlaceController extends Controller
     {
         //登録内容を保存するメソッド
         $place = new Place;
+        $user=\Auth::user(); //ユーザー情報を保存
         $place->name=request('name');
         $place->address=request('address');
         $place->category_id=request('category_id');
@@ -71,7 +72,13 @@ class PlaceController extends Controller
         //詳細ページを呼び出すメソッド
         //idを引数に設定する
         $place= Place::find($id);
-        return view('show',['place'=>$place]);
+        $user=\Auth::user();
+        if($user){
+            $login_user_id=$user->id; //ログインユーザーのidが引き渡された時の処理
+        }else{
+            $login_user_id='';
+        }
+        return view('show',['place'=>$place,'login_user_id'=>$login_user_id]);
     }
 
     /**
