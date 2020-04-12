@@ -56,6 +56,7 @@ class PlaceController extends Controller
         $place->name=request('name');
         $place->address=request('address');
         $place->category_id=request('category_id');
+        $place->user_id=$user->id; //新規登録時、どのユーザーによるものなのか管理
         $place -> save();
         return redirect()->route('place.detail',['id'=>$place->id]);
         //登録後、詳細ページへ移動
