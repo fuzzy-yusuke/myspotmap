@@ -25,6 +25,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //一覧表示と詳細ページ以外の操作ができる許可を、ログインユーザーにあるかを決めるクロージャ
+        Gate::define('edit-settings',function ($user){
+            return $user->isAdmin;
+        });
+
+        Gate::define('update-post',function ($user,$post){
+            return $user->id === $post->user_id;
+        });
     }
 }
