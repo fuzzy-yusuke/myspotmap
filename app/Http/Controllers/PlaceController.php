@@ -90,11 +90,9 @@ class PlaceController extends Controller
      */
     public function edit($id)
     {
-        if(Gate::allows('update-post',$post)){
         //更新ページを呼び出すメソッド
         $place=Place::find($id);
         $categories=Category::all()->pluck('name','id');
-        }
         //pluckメソッドで「name」と「id」を指定し、取り出す
         return view('edit',['place'=>$place,'categories'=>$categories]);
     }

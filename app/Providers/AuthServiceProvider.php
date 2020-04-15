@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
+//ポリシーを登録（指定したモデルを認可した時、どのポリシーを使うのか指定する。）
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -14,11 +15,12 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Model' => 'App\Policies\ModelPolicy',
+        Post::class => PostPolicy::class,
     ];
 
     /**
      * Register any authentication / authorization services.
-     *
+     *アプリケーションの全認証・認可サービスの登録
      * @return void
      */
     public function boot()
