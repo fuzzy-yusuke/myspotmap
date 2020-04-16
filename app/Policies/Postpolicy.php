@@ -9,13 +9,14 @@ class Postpolicy
 {
     use HandlesAuthorization;
 
-    /**
+    /**編集と削除の認可を判断する
      * Create a new policy instance.
      *
-     * @return void
+     * @return mixed
      */
-    public function __construct()
+    public function edit(User $user,Post $post)
     {
-        //        
+        //ログインしているユーザーを表示している投稿に認可させる
+        return $user->id == $post->user_id;        
     }
 }
