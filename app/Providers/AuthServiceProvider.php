@@ -29,12 +29,12 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //一覧表示と詳細ページ以外の操作ができる許可を、ログインユーザーにあるかを決めるクロージャ
-        Gate::define('edit-settings',function ($user){
-            return $user->isAdmin;
+        Gate::define('edit-settings',function ($login_user_id){
+            return $login_user_id->isAdmin;
         });
 
-        Gate::define('update-post',function ($user,$post){
-            return $user->id === $post->user_id;
+        Gate::define('update-post',function ($login_user_id,$post){
+            return $login_user_id->id === $post->user_id;
         });
     }
 }

@@ -17,14 +17,14 @@
         <div>
             <a href="{{ route('place.list') }}">一覧に戻る</a>
             @auth
-                <!--↓投稿がログインしているユーザーのIDだった場合、編集リンクを表示-->
-                @if($place->user_id===$login_user_id)
-                <a href="{{ route('place.edit',['id' => $place -> id])}}">編集</a>
-                <p></p>
-                 {{ Form::open(['method'=>'delete','route'=>['place.destroy',$place->id]])}}
-                 {{ Form::submit('削除')}}
-            {{ Form::close()}}
-                @endif
+                    <!--↓投稿がログインしているユーザーのIDだった場合、編集リンクを表示-->
+                    @if($place->user_id===$login_user_id)
+                    <a href="{{ route('place.edit',['id' => $place -> id])}}">編集</a>
+                    <p></p>
+                    {{ Form::open(['method'=>'delete','route'=>['place.destroy',$place->id]])}}
+                    {{ Form::submit('削除')}}
+                {{ Form::close()}}
+                    @endif
             @endauth
         </div> 
     @endsection
