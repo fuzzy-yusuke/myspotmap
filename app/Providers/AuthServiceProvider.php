@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Policies\PostPolicy;
+use App\Post;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -14,8 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-       'App\Model' => 'App\Policies\ModelPolicy',
-        User::class => UserPolicy::class,
+       //'App\Model' => 'App\Policies\ModelPolicy',
         Post::class => PostPolicy::class,
     ];
 
@@ -27,14 +28,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //一覧表示と詳細ページ以外の操作ができる許可を、ログインユーザーにあるかを決めるクロージャ
-        Gate::define('edit-settings',function ($login_user_id){
-            return $login_user_id->isAdmin;
-        });
-
-        Gate::define('update-post',function ($login_user_id,$post){
-            return $login_user_id->id === $post->user_id;
-        });
     }
 }

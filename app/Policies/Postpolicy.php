@@ -2,8 +2,10 @@
 
 namespace App\Policies;
 
+use App\Post;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
 
 class Postpolicy
 {
@@ -11,12 +13,16 @@ class Postpolicy
 
     /**編集と削除の認可を判断する
      * Create a new policy instance.
-     *
-     * @return mixed
+     * @param \App\User $user
+     * @param \App\Post $post
+     * @return bool
+     * @return \Illuminate\Auth\Access\Response
      */
-    public function edit(User $login_user_id,Post $post)
+    public function update(User $user,Post $post)
     {
         //ログインしているユーザーを表示している投稿に認可させる
-        return $login_user_id->id == $post->user_id;        
+        return $user->id === $post->user_id
+                    ? Response::allow()
+                    : Response::deny('あなたはこのポストの認可を持っていません。');        
     }
 }
