@@ -15,7 +15,7 @@
             frameborder='0'>
         </iframe>
         <div>
-            <a href="{{ route('place.list') }}">一覧に戻る</a>
+            <a href="{{ route('place.list') }}" class='btn btn-info'>一覧に戻る</a>
             @auth
                     <!--↓投稿がログインしているユーザーのIDだった場合、編集リンクを表示-->
                     @if($place->user_id===$login_user_id)
