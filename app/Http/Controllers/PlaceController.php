@@ -88,8 +88,9 @@ class PlaceController extends Controller
      * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,Post $post,User $user)
     {
+        $this->authorize('edit',$post);
         //更新ページを呼び出すメソッド
         $place=Place::find($id);
         $categories=Category::all()->pluck('name','id');
@@ -104,7 +105,7 @@ class PlaceController extends Controller
      * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id, Place $place)
+    public function update(Request $request,$id, Place $place,Post $post,User $user)
     {
         //更新画面で編集した内容を保存するメソッド
         $place=Place::find($id);
@@ -122,7 +123,7 @@ class PlaceController extends Controller
      * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,Post $post,User $user)
     {
         //登録した内容を削除するメソッド
         $place=Place::find($id);
