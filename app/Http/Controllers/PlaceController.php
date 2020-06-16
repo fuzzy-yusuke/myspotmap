@@ -37,9 +37,7 @@ class PlaceController extends Controller
     {
         //新規登録のメソッド
         $place=new Place;
-        $categories=Category::all()->pluck('name','id');
-        //pluckメソッドで「name」と「id」を指定し、取り出す
-        return view('new',['place'=>$place,'categories'=>$categories]);
+        return view('new',['place'=>$place]);
     }
 
     /**
@@ -55,7 +53,7 @@ class PlaceController extends Controller
         $user=\Auth::user(); //ユーザー情報を保存
         $place->name=request('name');
         $place->address=request('address');
-        $place->category_id=request('category_id');
+        $place->category=request('category');
         $place->user_id=$user->id; //新規登録時、どのユーザーによるものなのか管理
         $place -> save();
         return redirect()->route('place.detail',['id'=>$place->id]);
@@ -88,14 +86,11 @@ class PlaceController extends Controller
      * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,Post $post,User $user)
+    public function edit($id)
     {
-        $this->authorize('edit',$post);
         //更新ページを呼び出すメソッド
         $place=Place::find($id);
-        $categories=Category::all()->pluck('name','id');
-        //pluckメソッドで「name」と「id」を指定し、取り出す
-        return view('edit',['place'=>$place,'categories'=>$categories]);
+        return view('edit',['place'=>$place]);
     }
 
     /**
@@ -105,13 +100,12 @@ class PlaceController extends Controller
      * @param  \App\Place  $place
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id, Place $place,Post $post,User $user)
+    public function update(Request $request,$id, Place $place)
     {
         //更新画面で編集した内容を保存するメソッド
         $place=Place::find($id);
         $place->name=request('name');
         $place->address=request('address');
-        $place->category_id=request('category_id');
         $place->save();
         return redirect()->route('place.detail',['id'=>$place->id]);
         //保存出来たら、詳細ページに戻る

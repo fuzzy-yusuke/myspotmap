@@ -14,14 +14,14 @@
             {{ Form::text('address',null )}}
         </div>
         <div class='form-group'>
-            {{ Form::label('category_id','カテゴリ：' )}}
-            {{ Form::select('category_id',$categories )}}
+            {{ Form::label('category_id','ジャンル：' )}}
+            {{ Form::text('category',null )}}
         </div>
         <div class='form-group'>
             {{ Form::submit('更新する',['class'=>'btn btn-outline-primary'] )}}
         </div>
         {{ Form::close()}}
         <div>
-            <a href="{{ route('place.list') }}">一覧に戻る</a>
+            <a href="{{ route('place.list') }}" class='btn btn-outline-info'>一覧に戻る</a>
         </div>
     @endsection
