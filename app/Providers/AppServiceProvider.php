@@ -23,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //varchar型のデフォルトの文字列数を「191」にする
+        Schema::defaultStringLength(191);
     }
 }
