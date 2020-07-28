@@ -49390,7 +49390,7 @@ Vue.prototype.$mount = function (
   }
   return mount.call(this, el, hydrating)
 };
-
+/*
 //登録時に表れる確認メッセージ
 function submit_confirm(e){
   if(window.confirm('この内容で登録しますか？')){
@@ -49398,6 +49398,7 @@ function submit_confirm(e){
     return true;
   }
 };
+*/
 
 /**
  * Get outerHTML of elements, taking care
