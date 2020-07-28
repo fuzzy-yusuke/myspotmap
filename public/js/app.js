@@ -49391,6 +49391,14 @@ Vue.prototype.$mount = function (
   return mount.call(this, el, hydrating)
 };
 
+//登録時に表れる確認メッセージ
+function submit_confirm(e){
+  if(window.confirm('この内容で登録しますか？')){
+    window.alert('登録しました。');
+    return true;
+  }
+};
+
 /**
  * Get outerHTML of elements, taking care
  * of SVG elements in IE as well.
